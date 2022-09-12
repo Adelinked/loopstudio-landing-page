@@ -7,7 +7,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-export default () => {
+const Footer = () => {
   return (
     <div className={styles.footerDiv}>
       <NavBar footer />
@@ -34,3 +34,5 @@ export default () => {
     </div>
   );
 };
+
+export default Footer;

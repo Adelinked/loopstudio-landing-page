@@ -4,7 +4,7 @@ import styles from "./NavBar.module.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import Logo from "../Logo";
-export default ({ footer }) => {
+const NavBar = ({ footer }) => {
   const [show, setShow] = useState(true);
 
   const openVertNav = () => {
@@ -80,3 +80,4 @@ export default ({ footer }) => {
     </>
   );
 };
+export default NavBar;

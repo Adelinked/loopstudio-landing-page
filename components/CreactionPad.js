@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import throttle from "lodash.throttle";
 
-export default ({ title }) => {
+const CreationPad = ({ title }) => {
   const [windowWidth, setWindowWidth] = useState(0);
   useEffect(() => {
     setWindowWidth(window?.innerWidth);
@@ -11,10 +11,7 @@ export default ({ title }) => {
     setWindowWidth(window?.innerWidth);
   };
 
-  const throttleResizeHandler = useMemo(
-    () => throttle(handleResize, 300),
-    [windowWidth]
-  );
+  const throttleResizeHandler = useMemo(() => throttle(handleResize, 300));
 
   useEffect(() => {
     window.addEventListener("resize", throttleResizeHandler);
@@ -28,6 +25,7 @@ export default ({ title }) => {
     <div className="creationPad">
       <img
         className="creationImage"
+        alt={`${title} image`}
         src={`./images/${
           windowWidth > 375 ? "desktop" : "mobile"
         }/${title}.jpg`}
@@ -36,3 +34,5 @@ export default ({ title }) => {
     </div>
   );
 };
+
+export default CreationPad;
