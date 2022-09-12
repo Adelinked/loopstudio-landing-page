@@ -1,0 +1,48 @@
+.footerDiv {
+  background-color: var(--color-Black);
+  color: var(--color-White);
+  padding: 50px 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.iconsAndCopyRightDiv {
+}
+.iconsDiv {
+  font-size: 2rem;
+  padding-bottom: 32px;
+  display: flex;
+  justify-content: flex-end;
+}
+.iconsDiv * {
+  margin-right: 5px;
+  display: block;
+}
+
+.copyRight {
+  color: var(--color-DarkGray);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 820px) {
+  .footerDiv {
+    flex-direction: column;
+    align-items: center;
+  }
+  .iconsDiv {
+    padding-top: 32px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .footerDiv {
+    padding-top: 110px;
+    padding-bottom: 125px;
+  }
+}
+@media (max-width: 280px) {
+  .footerDiv {
+    padding: 50px 10px;
+  }
+}

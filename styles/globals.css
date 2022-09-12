@@ -1,26 +1,128 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+:root {
+  --color-White: hsl(0, 0%, 100%);
+  --color-Black: hsl(0, 0%, 0%);
+  --color-DarkGray: hsl(0, 0%, 55%);
+  --color-VeryDarkGray: hsl(0, 0%, 41%);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+/* Base reset */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  transition: top 0.5s ease-out, color 0.5s ease-out,
+    background-color 0.5s ease-out, transform 0.5s ease-out, right 0.5s ease-out;
+}
+
+html,
+body {
+  font-family: "Alata";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--color-Black);
+  letter-spacing: 1px;
+}
+
+button:hover,
+button:focus,
+button:active {
+  background-color: var(--color-Black);
+  color: var(--color-White);
+  cursor: pointer;
+  boder: none;
+}
+a {
+  color: var(--color-White);
+}
+/*.font2 {
+  font-family: "Josefin" , sans-serif;
+  font-weight: 300;
+}*/
+.logoContainer {
+  /*width: 13%;*/
+  padding-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 190px;
+}
+.logoContainerFooter {
+  /*width: 13%;*/
+  padding-left: 2px;
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 140px;
+  background-color: black;
+  padding-bottom: 30px;
+}
+
+.creationPad {
+  /* width: 255px;*/
+  height: 450px;
+  position: relative;
+}
+
+.creationPadTitle {
+  width: 75px;
+  position: absolute;
+  top: 80%;
+  left: 15%;
+  font-size: 18px;
+  font-weight: 200;
+  font-family: "Josfin", sans;
+}
+.creationImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.creationImage:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.ruler {
+  position: absolute;
+  inset: 0;
+  top: 24px;
+  width: 2px;
+  height: 260px;
+  background-color: green;
+}
+
+@media (max-width: 760px) {
+  .logoContainer {
+    /*width:30%;*/
+    font-size: 1.3rem;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@media (max-width: 375px) {
+  .logoContainer {
+    /*width:40%;*/
+    font-size: 1.2rem;
+  }
+  .creationPad {
+    height: 240px;
+  }
+  .creationPadTitle {
+    top: 70%;
+    width: 90px;
   }
 }
