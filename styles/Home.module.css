@@ -86,22 +86,17 @@
 }
 .seeAllButton {
   padding: 10px 22px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 3px;
   display: block;
   border: 1px solid var(--color-Black);
   outline: none;
 }
-/*.seeAllButton:hover      {
-  background-color: var(--color-Black);
-  color: var(--color-White);
-  cursor: pointer;
-}*/
 
 .seeAllButton2 {
   margin-top: 70px;
   padding: 10px 22px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 3px;
   display: none;
   border: 1px solid var(--color-Black);
@@ -203,7 +198,7 @@
   }
   .seeAllButton2 {
     padding: 10px 22px;
-    font-size: 1.5rem;
+
     letter-spacing: 3px;
     display: block;
   }
