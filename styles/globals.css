@@ -105,7 +105,13 @@ a {
   height: 260px;
   background-color: green;
 }
-
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
 @media (max-width: 760px) {
   .logoContainer {
     /*width:30%;*/
