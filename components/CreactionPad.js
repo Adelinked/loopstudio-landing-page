@@ -25,7 +25,7 @@ const CreationPad = ({ title }) => {
     <div className="creationPad">
       <img
         className="creationImage"
-        alt={`${title.replace(/\s/g, "-")} image`}
+        alt={`${title} image`}
         src={`./images/${
           windowWidth > 375 ? "desktop" : "mobile"
         }/${title.replace(/\s/g, "-")}.jpg`}
