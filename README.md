@@ -39,24 +39,12 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+I learned how to darken a background image using css ([solution found here](https://www.geeksforgeeks.org/how-to-darken-an-image-using-css/). the background-image property in CSS supports the use of multiple backgrounds that are layered on top of each other. Using the linear-gradient property, a black colored background is used as the front layer and the image to be darkened is used as the back layer.
+The opacity of the black gradient can be changed to control the amount of darkening. This can be used accordingly to darken the image as required.
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url("url_of_image");
 ```
 
 ## Author

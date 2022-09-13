@@ -19,8 +19,8 @@ const NavBar = ({ footer }) => {
     setShow((show) => !show);
   };
   return (
-    <>
-      <nav
+    <nav>
+      <div
         className={footer ? styles.navBarFooter : styles.navbar}
         id={`navbar${footer ? "footer" : ""}`}
       >
@@ -50,9 +50,9 @@ const NavBar = ({ footer }) => {
             <FaBars />
           </span>
         )}
-      </nav>
+      </div>
       {!footer && (
-        <nav className={styles.vertNavbar} id="vertNavbar">
+        <div className={styles.vertNavbar} id="vertNavbar">
           <div className={styles.logoAndClose}>
             <Logo logoText="loopstudios" />
             <span className={styles.closeNav} onClick={openVertNav}>
@@ -77,9 +77,9 @@ const NavBar = ({ footer }) => {
               <a title="Support">SUPPORT</a>
             </Link>
           </div>
-        </nav>
+        </div>
       )}
-    </>
+    </nav>
   );
 };
 export default NavBar;
