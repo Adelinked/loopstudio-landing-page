@@ -28,7 +28,9 @@ const NavBar = ({ footer }) => {
 
         <div className={footer ? styles.linksDivFooter : styles.linksDiv}>
           <Link href="#">
-            <a title="About">About</a>
+            <a title="About" className={styles.navbarLink}>
+              About
+            </a>
           </Link>
           <Link href="#">
             <a title="Careers">Careers</a>

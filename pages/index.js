@@ -64,7 +64,7 @@ export default function Home() {
         <button className={styles.seeAllButton2}>SEE ALL</button>
       </section>
       <Footer />
-      <div class="attribution">
+      <div className="attribution">
         Challenge by{" "}
         <a
           href="https://www.frontendmentor.io?ref=challenge"

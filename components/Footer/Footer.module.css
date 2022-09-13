@@ -1,7 +1,7 @@
 .footerDiv {
   background-color: var(--color-Black);
   color: var(--color-White);
-  padding: 50px 50px;
+  padding: 50px 12%;
   width: 100%;
   display: flex;
   justify-content: space-between;

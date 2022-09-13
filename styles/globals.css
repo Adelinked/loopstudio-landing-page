@@ -41,37 +41,27 @@ button:active {
 a {
   color: var(--color-White);
 }
-/*.font2 {
-  font-family: "Josefin" , sans-serif;
-  font-weight: 300;
-}*/
+
 .logoContainer {
-  /*width: 13%;*/
   padding-left: 2px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   font-weight: 600;
   width: 190px;
 }
 .logoContainerFooter {
-  /*width: 13%;*/
   padding-left: 2px;
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
   width: 140px;
-  background-color: black;
   padding-bottom: 30px;
 }
 
 .creationPad {
-  /* width: 255px;*/
   height: 450px;
   position: relative;
 }

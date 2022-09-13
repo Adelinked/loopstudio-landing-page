@@ -3,7 +3,7 @@
 }
 
 .header {
-  padding-top: 60px;
+  padding-top: 40px;
   padding-left: 12%;
   padding-right: 12%;
   padding-bottom: 150px;
@@ -11,7 +11,7 @@
   background-origin: content-box;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 150% 150%;
+  background-size: 150% 160%;
   background-color: var(--color-Black);
   color: var(--color-White);
 }
@@ -19,6 +19,8 @@
   border: 1px solid var(--color-White);
   padding: 40px 50px;
   font-size: 5rem;
+  font-weight: 100;
+
   width: 650px;
 }
 .leaderSection {

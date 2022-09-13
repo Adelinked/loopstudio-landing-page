@@ -4,9 +4,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 12vh;
+  height: 40px;
   user-select: none;
-  margin-bottom: 135px;
+  margin-bottom: 120px;
 }
 .navBarFooter {
   flex-direction: column;
@@ -31,8 +31,22 @@
   border-bottom: 3px solid transparent;
 }
 
-.navbar a:hover {
-  border-bottom: 3px solid var(--color-White);
+.navbar a::before {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: var(--color-White);
+  position: absolute;
+  left: 25%;
+  bottom: -5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 200ms ease-in;
+}
+.navbar a:hover::before {
+  opacity: 1;
+  visibility: visible;
+  width: 50%;
 }
 
 .openNav,
@@ -93,6 +107,9 @@
   font-size: 18px;
   font-weight: 200;
   font-family: "Josfin", sans;
+}
+.vertNavbar a:hover {
+  color: var(--color-White);
 }
 
 @media (max-width: 768px) {
