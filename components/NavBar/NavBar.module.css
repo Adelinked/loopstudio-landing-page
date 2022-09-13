@@ -105,8 +105,8 @@
   padding: 20px 0;
   color: var(--color-DarkGray);
   font-size: 18px;
-  font-weight: 200;
-  font-family: "Josfin", sans;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
 }
 .vertNavbar a:hover {
   color: var(--color-White);
