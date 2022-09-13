@@ -25,10 +25,10 @@ const CreationPad = ({ title }) => {
     <div className="creationPad">
       <img
         className="creationImage"
-        alt={`${title} image`}
+        alt={`${title.replace(/\s/g, "-")} image`}
         src={`./images/${
           windowWidth > 375 ? "desktop" : "mobile"
-        }/${title}.jpg`}
+        }/${title.replace(/\s/g, "-")}.jpg`}
       />
       <p className="creationPadTitle">{title.toUpperCase()}</p>
     </div>
