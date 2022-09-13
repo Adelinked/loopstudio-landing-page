@@ -7,13 +7,19 @@
   padding-left: 12%;
   padding-right: 12%;
   padding-bottom: 150px;
-  background-image: url("/images/desktop/image-hero.jpg ");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/desktop/image-hero.jpg ");
   background-origin: content-box;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 150% 170%;
   background-color: var(--color-Black);
+
   color: var(--color-White);
+
+  filter: brightness(100%);
+
+  opacity: 100%;
 }
 .hero {
   border: 1px solid var(--color-White);
