@@ -87,6 +87,10 @@ a {
   cursor: pointer;
 }
 
+.creationPad:hover {
+  color: var(--color-Black);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
