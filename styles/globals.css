@@ -67,13 +67,15 @@ a {
 }
 
 .creationPadTitle {
-  width: 115px;
+  width: 120px;
   position: absolute;
-  top: 80%;
-  left: 15%;
-  font-size: 20px;
+  bottom: 20px;
+  left: 20px;
+  font-size: 24px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
 }
 .creationImage {
   width: 100%;
@@ -112,7 +114,6 @@ a {
     height: 240px;
   }
   .creationPadTitle {
-    top: 70%;
-    width: 90px;
+    font-size: 22px;
   }
 }
