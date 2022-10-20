@@ -1,12 +1,25 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import dynamic from "next/dynamic";
 import styles from "../styles/Home.module.css";
 import Logo from "../components/Logo";
 import NavBar from "../components/NavBar";
-import CreactionPad from "../components/CreactionPad";
 import Footer from "../components/Footer";
-const creations = [
+import useOnScreen from "../utils/useOnScreen";
+import { useState, useMemo, useEffect, useRef } from "react";
+import throttle from "lodash.throttle";
+
+const CreationPad = dynamic(() => import("../components/CreactionPad"), {
+  ssr: false,
+});
+Array.prototype.dup = function (n) {
+  const arr = this;
+  return (function f(n) {
+    return n === 1 ? arr : [...arr, ...f(n - 1)];
+  })(n);
+};
+
+let creationsArr = [
   { title: "Deep earth" },
   { title: "Night arcade" },
   { title: "Soccer team VR" },
@@ -15,9 +28,85 @@ const creations = [
   { title: "Pocket borealis" },
   { title: "The curiosity" },
   { title: "Make it fisheye" },
-];
+].dup(3);
+const getItemsNum = (windowWidth) => {
 
+  if (windowWidth > 1150) {
+    return 4;
+  }
+  if (windowWidth > 820) {
+    return 3;
+  }
+  if (windowWidth > 600) {
+    return 2;
+  }
+  if (windowWidth <= 600) {
+    return 1;
+  }
+}
 export default function Home() {
+  const [windowWidth, setWindowWidth] = useState();
+  const [itemsNumLoad, setItemsNumLoad] = useState();
+  const [creations, setCreations] = useState();
+  const bottomCreations = useRef();
+  const creationbottomRefValue = useOnScreen(bottomCreations);
+
+  useEffect(() => {
+    if (creations == null || creations === creationsArr.length) return;
+    if (creationbottomRefValue) {
+
+
+      setCreations((creations) => {
+        const creationLen = creations.length;
+        return [
+          ...creations,
+          ...creationsArr.slice(creationLen, creationLen + itemsNumLoad),
+        ]
+      });
+    }
+
+  }, [creationbottomRefValue]);
+
+  useEffect(() => {
+    setWindowWidth(window?.innerWidth);
+
+  }, []);
+
+  useEffect(() => {
+    setItemsNumLoad(getItemsNum(windowWidth));
+  }, [windowWidth]);
+
+  useEffect(() => {
+    if (!windowWidth) return;
+    if (creations && creations.length > 0) return;
+    setCreations(creationsArr.slice(0, itemsNumLoad));
+    if (creationbottomRefValue) {
+      setCreations((creations) => {
+        const creationLen = creations.length;
+        return [
+          ...creations,
+          ...creationsArr.slice(creationLen, creationLen + itemsNumLoad + 1),
+        ]
+      });
+    }
+  }, [itemsNumLoad])
+
+  const handleResize = () => {
+    setWindowWidth(window?.innerWidth);
+  };
+
+  const throttleResizeHandler = useMemo(() => throttle(handleResize, 300));
+
+  useEffect(() => {
+    window.addEventListener("resize", throttleResizeHandler);
+    return function cleanup() {
+      throttleResizeHandler?.cancel();
+      window.removeEventListener("resize", throttleResizeHandler);
+    };
+  });
+
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -57,12 +146,13 @@ export default function Home() {
           <button className={styles.seeAllButton}>SEE ALL</button>
         </div>
         <div className={styles.creactionsDiv}>
-          {creations.map((i) => (
-            <CreactionPad key={i.title} {...i} />
+          {creations?.map((i, index) => (
+            <CreationPad key={i.title + index} {...i} windowWidth={windowWidth} />
           ))}
         </div>
         <button className={styles.seeAllButton2}>SEE ALL</button>
       </section>
+      <div ref={bottomCreations}></div>
       <Footer />
       <div className="attribution">
         Challenge by{" "}

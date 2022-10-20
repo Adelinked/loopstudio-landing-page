@@ -1,36 +1,38 @@
-import { useEffect, useState, useMemo } from "react";
-import throttle from "lodash.throttle";
+import { useEffect, useState, useMemo, useRef } from "react";
+import useOnScreen from "../utils/useOnScreen";
 
-const CreationPad = ({ title }) => {
-  const [windowWidth, setWindowWidth] = useState(0);
-  useEffect(() => {
-    setWindowWidth(window?.innerWidth);
-  }, []);
+const CreationPad = ({ title, windowWidth }) => {
+  const creationRef = useRef();
+  // const creationRefValue = useOnScreen(creationRef);
+  const [rendred, setRendred] = useState(false)
+  const [loading, setLoading] = useState(false);
 
-  const handleResize = () => {
-    setWindowWidth(window?.innerWidth);
-  };
 
-  const throttleResizeHandler = useMemo(() => throttle(handleResize, 300));
-
-  useEffect(() => {
-    window.addEventListener("resize", throttleResizeHandler);
-    return function cleanup() {
-      throttleResizeHandler?.cancel();
-      window.removeEventListener("resize", throttleResizeHandler);
-    };
-  });
+  /* useEffect(() => {
+     if (rendred) return;
+     if (creationRefValue) {
+       setLoading(true);
+       setTimeout(() => { setLoading(false) }, 300);
+       setRendred(true)
+     }
+     else {
+       setLoading(false);
+     }
+ 
+   }, [creationRefValue])*/
 
   return (
-    <div className="creationPad">
-      <img
-        className="creationImage"
-        alt={`${title} image`}
-        src={`./images/${
-          windowWidth > 375 ? "desktop" : "mobile"
-        }/${title.replace(/\s/g, "-")}.jpg`}
-      />
-      <p className="creationPadTitle">{title.toUpperCase()}</p>
+    <div className="creationPad" ref={creationRef}>
+      {/*creationRefValue */true && (!loading ? < >
+        <img
+          className="creationImage"
+          alt={`${title} image`}
+          src={`/images/${windowWidth > 375 ? `desktop` : `mobile`
+            }/${title.replace(/\s/g, "-")}.jpg`}
+        />
+        <p className="creationPadTitle">{title.toUpperCase()}</p>
+      </> : <>loading...</>)
+      }
     </div>
   );
 };
